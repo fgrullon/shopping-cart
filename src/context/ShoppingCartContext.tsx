@@ -19,6 +19,7 @@ type ShoppingCartContext = {
   decreaseCartQtn: (id: number) => void;
   removeFromCart: (id: number) => void;
   cartItems: CartItem[];
+  isOpen: boolean;
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -89,10 +90,11 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         removeFromCart,
         openCart,
         closeCart,
+        isOpen,
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen} />
+      <ShoppingCart />
     </ShoppingCartContext.Provider>
   );
 }
